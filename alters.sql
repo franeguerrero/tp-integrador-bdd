@@ -1,0 +1,5 @@
+ALTER TABLE Productos
+ADD COLUMN descuento DECIMAL(10, 2);
+
+ALTER TABLE Productos
+MODIFY COLUMN precio FLOAT;
