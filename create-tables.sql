@@ -1,23 +1,23 @@
 CREATE TABLE Productos (
-  id INT PRIMARY KEY,
-  nombre VARCHAR(100),
-  precio DECIMAL(10, 2),
-  stock INT
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  precio DECIMAL(10, 2) NOT NULL,
+  stock INT NOT NULL
 );
 
 CREATE TABLE Clientes (
-  id INT PRIMARY KEY,
-  nombre VARCHAR(100),
-  correo VARCHAR(100),
-  direccion VARCHAR(100)
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  correo VARCHAR(100) NOT NULL,
+  direccion VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Compras (
-  id INT PRIMARY KEY,
-  cliente_id INT,
-  producto_id INT,
-  cantidad INT,
-  fecha DATE,
-  FOREIGN KEY (cliente_id) REFERENCES Clientes(id),
-  FOREIGN KEY (producto_id) REFERENCES Productos(id)
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  cliente_id INT NOT NULL,
+  producto_id INT NOT NULL,
+  cantidad INT NOT NULL,
+  fecha DATE NOT NULL,
+  FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ON DELETE CASCADE,
+  FOREIGN KEY (producto_id) REFERENCES Productos(id) ON DELETE CASCADE
 );
