@@ -6,6 +6,6 @@ JOIN Productos AS P ON CO.producto_id = P.id;
 CREATE VIEW ProductosConDescuento AS
 SELECT id, nombre, precio, descuento
 FROM Productos
-WHERE descuento IS NOT NULL;
+WHERE descuento > 0;
 
 CREATE INDEX idx_nombre ON Productos(nombre);

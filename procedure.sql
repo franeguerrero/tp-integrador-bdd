@@ -1,16 +1,13 @@
-/*
 DELIMITER //
-CREATE PROCEDURE CalcularTotalVentasCliente(
+CREATE PROCEDURE ContarVentasCliente(
   IN cliente_id INT,
-  OUT total_ventas FLOAT
+  OUT total_ventas INT
 )
 BEGIN
-  SELECT SUM(P.precio * CO.cantidad)
-  INTO total_ventas
-  FROM Compras AS CO
-  JOIN Productos AS P ON CO.producto_id = P.id
-  WHERE CO.cliente_id = cliente_id;
+  SELECT COUNT(*) INTO total_ventas
+  FROM Compras
+  WHERE cliente_id = cliente_id;
 END //
-*/
-CALL CalcularTotalVentasCliente(1, @total_ventas);
+
+CALL ContarVentasCliente(1, @total_ventas);
 SELECT @total_ventas;
