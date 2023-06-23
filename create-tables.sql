@@ -18,6 +18,6 @@ CREATE TABLE Compras (
   producto_id INT NOT NULL,
   cantidad INT NOT NULL,
   fecha DATE NOT NULL,
-  FOREIGN KEY (cliente_id) REFERENCES Clientes(id),
-  FOREIGN KEY (producto_id) REFERENCES Productos(id)
+  FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ON DELETE CASCADE,
+  FOREIGN KEY (producto_id) REFERENCES Productos(id) ON DELETE CASCADE
 );
